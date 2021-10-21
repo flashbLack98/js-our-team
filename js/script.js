@@ -2,6 +2,18 @@
 const containerCard = document.querySelector(".team-container");
 console.log(containerCard);
 
+function generazioneCard(carta, nome, ruolo, immagini) {
+    return carta = `<div class="team-card">
+        <div class="card-image">
+            <img src="img/${immagini}" alt="${nome}" />
+        </div>
+        <div class="card-text">
+            <h3>${nome}</h3>
+            <p>${ruolo}</p>
+        </div>
+    </div>`;
+}
+
 // ho una lista con tutti i nomi, ruoli e immagini di un team
 const memberList = [
     {
@@ -41,33 +53,26 @@ const memberList = [
     }
 ];
 
-let nameMember = "";
-let roleMember = "";
-let imageMember = "";
-
 
 //ciclare le card per il numero della lunghezza dell'array
 for (i = 0; i < memberList.length; i++) {
 
+    const singleMember = memberList[i];
+    console.log(singleMember);
+    console.log(singleMember["name"]);
+
     //CAMBIARE GLI ELEMENTI DI OGNI CARD
-    nameMember = memberList[i]["name"];
-    roleMember = memberList[i]["role"];
-    imageMember = memberList[i]["image"];
-
-    const card = `<div class="team-card">
-<div class="card-image">
-  <img src="img/${imageMember}" alt="${nameMember}" />
-</div>
-<div class="card-text">
-  <h3>${nameMember}</h3>
-  <p>${roleMember}</p>
-</div>
-</div>`;
 
 
-    console.log(`questa è una card ${card}`);
+
+    let card = "";
+
+    card = generazioneCard(card, singleMember["name"], singleMember["role"], singleMember["image"]);
+    console.log(generazioneCard(card, singleMember["name"], singleMember["role"], singleMember["image"]));
+
     //inserire ogni card dentro il contenitore da javascript
     containerCard.innerHTML += card;
+
 
 }
 
