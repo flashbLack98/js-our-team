@@ -2,8 +2,8 @@
 const containerCard = document.querySelector(".team-container");
 console.log(containerCard);
 
-function generazioneCard(carta, nome, ruolo, immagini) {
-    return carta = `<div class="team-card">
+function generazioneCard(nome, ruolo, immagini) {
+    return `<div class="team-card">
         <div class="card-image">
             <img src="img/${immagini}" alt="${nome}" />
         </div>
@@ -67,8 +67,8 @@ for (i = 0; i < memberList.length; i++) {
 
     let card = "";
 
-    card = generazioneCard(card, singleMember["name"], singleMember["role"], singleMember["image"]);
-    console.log(generazioneCard(card, singleMember["name"], singleMember["role"], singleMember["image"]));
+    card = generazioneCard(singleMember["name"], singleMember["role"], singleMember["image"]);
+    console.log(generazioneCard(singleMember["name"], singleMember["role"], singleMember["image"]));
 
     //inserire ogni card dentro il contenitore da javascript
     containerCard.innerHTML += card;
@@ -79,41 +79,32 @@ for (i = 0; i < memberList.length; i++) {
 const btnAdd = document.getElementById("addMemberButton");
 console.log("questo è il bottone Add " + btnAdd);;
 
+
+
 let nameForm = document.getElementById("name");
 let roleForm = document.getElementById("role");
 let imageForm = document.getElementById("image");
-
-
 
 console.log(nameForm.value);
 
 //quando schiaccio il bottone add devo pushare un novo elemento nell'array
 btnAdd.addEventListener("click", function () {
-    nameForm = nameForm.value;
-    console.log(nameForm);
-    roleForm = roleForm.value;
-    imageForm = imageForm.value;
+    nameForm.value;
+    roleForm.value;
+    imageForm.value;
 
-    const newMember = {
-        name: nameForm,
-        role: roleForm,
-        image: imageForm
-    };
-
-
-    memberList.push(newMember);
-
-    const newcard = `<div class="team-card">
+    let newCard = `<div class="team-card">
     <div class="card-image">
-      <img src="img/${imageForm}" alt="${nameForm}" />
+      <img src="img/${imageForm.value}" alt="Wayne Barnett" />
     </div>
     <div class="card-text">
-      <h3>${nameForm}</h3>
-      <p>${roleForm}</p>
+      <h3>${nameForm.value}</h3>
+      <p>${roleForm.value}</p>
     </div>
-    </div>`;
+  </div>`;
 
-    containerCard.innerHTML += newcard;
+
+    containerCard.innerHTML += newCard;
     console.log("ciao");
     console.log(memberList);
 });
