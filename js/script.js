@@ -89,19 +89,14 @@ console.log(nameForm.value);
 
 //quando schiaccio il bottone add devo pushare un novo elemento nell'array
 btnAdd.addEventListener("click", function () {
-    nameForm.value;
-    roleForm.value;
-    imageForm.value;
+    nameFormValue = nameForm.value;
+    roleFormValue = roleForm.value;
+    imageFormValue = imageForm.value;
 
-    let newCard = `<div class="team-card">
-    <div class="card-image">
-      <img src="img/${imageForm.value}" alt="Wayne Barnett" />
-    </div>
-    <div class="card-text">
-      <h3>${nameForm.value}</h3>
-      <p>${roleForm.value}</p>
-    </div>
-  </div>`;
+    memberList.push({ nameFormValue, roleFormValue, imageFormValue });
+
+    let newCard = generazioneCard(nameForm.value, roleForm.value, imageForm.value);
+
 
 
     containerCard.innerHTML += newCard;
